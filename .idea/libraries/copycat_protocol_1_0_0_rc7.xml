@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="copycat-protocol-1.0.0-rc7">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Downloads/copycat-protocol-1.0.0-rc7.jar!/" />
+      <root url="jar://$USER_HOME$/Downloads/catalyst-transport-1.0.8.jar!/" />
+      <root url="jar://$USER_HOME$/Downloads/catalyst-netty-1.0.8.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
