@@ -1,0 +1,31 @@
+##SEVERS
+-Receive state machine operations from clients
+-Log and replicate the operations as necessary
+-Apply them to a state machine on each server
+
+##OPERATIONS
+-Copycat replicated state machines are modified and queried by defining OPERATIONS through which a client and state machine 
+can communicate.
+-OPERATIONS are replicated by the Copycat cluster and are translated into arguments to methods on the replicated state machine.
+-Users must define the interface between the client and the cluster by implementing OPERATION classes that clients will submit 
+to the replicated state machine.
+
+#COMMANDS 
+-COMMANDS are state machine OPERATIONS that alter the system’s state. 
+-For example, in a map state machine some COMMANDS might include PUT and REMOVE. 
+-To implement a state machine COMMAND, simply implement the COMMAND interface. 
+-The generic argument to the COMMAND interface indicates the return type of the COMMAND.
+
+#QUERIES
+-QUERIES are state machine OPERATIONS that read the system’s state but do not modify it.
+-For example, in a map state machine some QUERIES might include GET, SIZE, and ISEMPTY. 
+-To implement a state machine QUERY, implement the QUERY interface. 
+-The generic argument to the QUERY interface indicates the return type of the QUERY.
+
+#IMPLEMENTATION OF OPERATIONS
+-State machine OPERATIONS are implemented as public methods on the state machine class. 
+-Commands are defined by implementing the COMMAND interface. COMMAND takes a single generic argument that defines the 
+output (return value) of the command implementation.
+-They accept a single Commit parameter where the generic argument for the commit is the OPERATION accepted by the method. 
+-Copycat automatically detects the COMMAND or QUERY that applies to a given state machine methods based on the generic 
+argument to the Commit parameter.
